@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- begin::Head -->
+<head th:replace="back/header :: head"></head>
+<script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+<!-- end::Head -->
+
+<!-- begin::Body -->
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+
+<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
+
+    <header th:replace="back/header :: header"></header>
+
+    <!-- begin::Body -->
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+
+        <div th:replace="back/left_aside :: left-aside"></div>
+
+        <div class="m-grid__item m-grid__item--fluid m-wrapper">
+            <div class="m-content">
+                <!--begin::Portlet-->
+                <div class="m-portlet">
+                    <div class="m-portlet__head" style="background: #716aca;">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <h3 class="m-portlet__head-text" style="color:white">
+                                    Product
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="m-form m-form--fit m-form--label-align-right" action="#" th:action="@{/product/save}" th:object="${product}" method="post" enctype="multipart/form-data">
+                        <div class="m-portlet__body">
+                            <div class="form-group m-form__group">
+                                <label>Product Id:</label>
+                                <input type="text" class="form-control m-input" readonly="readonly" th:field="*{id}">
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>Name:</label>
+                                <input type="text" class="form-control m-input" placeholder="Enter full name" th:field="*{name}">
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>Size:</label>
+                                <input type="text" class="form-control m-input" placeholder="Enter size" th:field="*{size}">
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>Prize:</label>
+                                <input type="text" class="form-control m-input" placeholder="Enter prize" th:field="*{prize}">
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>Image:</label>
+                                <input type="file" class="form-control m-input" name="image" placeholder="Enter image" th:field="*{image}">
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>Decription:</label>
+                                <textarea name="description" th:field="*{description}"></textarea>
+                            </div>
+                            <div class="m-form__group form-group">
+                                <label>Gender:</label>
+                                <div class="m-radio-inline">
+                                    <label class="m-radio">
+                                        <input type="radio" value="M" th:field="*{gender}"> Nam
+                                        <span></span>
+                                    </label>
+                                    <label class="m-radio">
+                                        <input type="radio" value="F" th:field="*{gender}"> Nữ
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label for="exampleSelect1">Producer:</label>
+                                <select class="form-control m-input m-input--solid" id="exampleSelect1" name="producerId" >
+                                    <option th:each="producer: ${producers}" th:text="${producer.name}" th:value="${producer.id} "
+                                        th:field="*{producer}"
+                                    ></option>
+                                </select>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label for="exampleSelect1">Category:</label>
+                                <select class="form-control m-input m-input--solid" id="exampleSelect2" name="categoryId" >
+                                    <option th:each="cate: ${categories}" th:text="${cate.name}" th:value="${cate.id} "
+                                            th:field="*{category}"
+                                    ></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block btn-primary">
+                                    <i class="fa fa-save"></i> Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--end::Portlet-->
+            </div>
+            <!--End::Section-->
+        </div>
+    </div>
+</div>
+
+<!-- end:: Body -->
+
+<!-- begin::Footer -->
+
+
+<footer th:replace="back/footer :: footer"></footer>
+<script>
+    CKEDITOR.replace( 'description' );
+    var data = CKEDITOR.instances.description.getData();
+    console.log(data);
+</script>
+<!--end::Page Scripts -->
+</body>
+
+<!-- end::Body -->
+</html>

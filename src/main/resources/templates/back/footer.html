@@ -1,0 +1,141 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<footer th:fragment="footer">
+    <footer class="m-grid__item		m-footer ">
+        <div class="m-container m-container--fluid m-container--full-height m-page__container">
+            <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
+                <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
+                <span class="m-footer__copyright">
+                    2019 &copy; Project III  by <a href="https://www.facebook.com/dtno195"
+                                                   class="m-link">Nguyen Thanh Duc - LTU13B</a>
+                </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- begin::Scroll Top -->
+    <div id="m_scroll_top" class="m-scroll-top">
+        <i class="la la-arrow-up"></i>
+    </div>
+
+    <!-- end::Scroll Top -->
+
+    <!-- begin::Quick Nav -->
+    <ul class="m-nav-sticky" style="margin-top: 30px;">
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Purchase" data-placement="left">
+            <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank"><i class="la la-cart-arrow-down"></i></a>
+        </li>
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Documentation" data-placement="left">
+            <a href="https://keenthemes.com/metronic/documentation.html" target="_blank"><i class="la la-code-fork"></i></a>
+        </li>
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Support" data-placement="left">
+            <a href="https://keenthemes.com/forums/forum/support/metronic5/" target="_blank"><i class="la la-life-ring"></i></a>
+        </li>
+    </ul>
+
+    <!-- begin::Quick Nav -->
+    <!--begin:: Global Mandatory Vendors -->
+    <script th:src="@{/back/vendors/jquery/dist/jquery.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/popper.js/dist/umd/popper.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap/dist/js/bootstrap.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js-cookie/src/js.cookie.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/moment/min/moment.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/tooltip.js/dist/umd/tooltip.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/perfect-scrollbar/dist/perfect-scrollbar.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/wnumb/wNumb.js}" type="text/javascript"></script>
+
+    <!--end:: Global Mandatory Vendors -->
+
+    <!--begin:: Global Optional Vendors -->
+    <script th:src="@{/back/vendors/jquery.repeater/src/lib.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/jquery.repeater/src/jquery.input.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/jquery.repeater/src/repeater.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/jquery-form/dist/jquery.form.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/block-ui/jquery.blockUI.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/forms/bootstrap-datepicker.init.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-timepicker/js/bootstrap-timepicker.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/forms/bootstrap-timepicker.init.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-daterangepicker/daterangepicker.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/forms/bootstrap-daterangepicker.init.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-maxlength/src/bootstrap-maxlength.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-switch/dist/js/bootstrap-switch.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/forms/bootstrap-switch.init.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-select/dist/js/bootstrap-select.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/select2/dist/js/select2.full.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/typeahead.js/dist/typeahead.bundle.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/handlebars/dist/handlebars.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/inputmask/dist/jquery.inputmask.bundle.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/inputmask/dist/inputmask/inputmask.date.extensions.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/inputmask/dist/inputmask/inputmask.numeric.extensions.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/inputmask/dist/inputmask/inputmask.phone.extensions.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/nouislider/distribute/nouislider.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/owl.carousel/dist/owl.carousel.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/autosize/dist/autosize.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/clipboard/dist/clipboard.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/ion-rangeslider/js/ion.rangeSlider.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/dropzone/dist/dropzone.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/summernote/dist/summernote.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/markdown/lib/markdown.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-markdown/js/bootstrap-markdown.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/forms/bootstrap-markdown.init.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/jquery-validation/dist/jquery.validate.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/jquery-validation/dist/additional-methods.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/forms/jquery-validation.init.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/bootstrap-notify/bootstrap-notify.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/base/bootstrap-notify.init.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/toastr/build/toastr.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/jstree/dist/jstree.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/raphael/raphael.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/morris.js/morris.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/chartist/dist/chartist.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/chart.js/dist/Chart.bundle.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/charts/chart.init.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/back/vendors/vendors/jquery-idletimer/idle-timer.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/waypoints/lib/jquery.waypoints.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/counterup/jquery.counterup.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/es6-promise-polyfill/promise.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/sweetalert2/dist/sweetalert2.min.js}" type="text/javascript"></script>
+    <script th:src="@{/back/vendors/js/framework/components/plugins/base/sweetalert2.init.js}"
+            type="text/javascript"></script>
+
+    <!--end:: Global Optional Vendors -->
+
+    <!--begin::Global Theme Bundle -->
+    <script th:src="@{/back/demo/base/scripts.bundle.js}" type="text/javascript"></script>
+
+    <!--end::Global Theme Bundle -->
+
+    <!--begin::Page Vendors -->
+    <script th:src="@{/back/vendors/custom/fullcalendar/fullcalendar.bundle.js}" type="text/javascript"></script>
+
+    <!--end::Page Vendors -->
+
+    <!--begin::Page Scripts -->
+    <script th:src="@{/back/app/js/dashboard.js}" type="text/javascript"></script>
+
+    </body>
+</footer>
