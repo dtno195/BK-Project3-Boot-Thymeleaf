@@ -62,9 +62,9 @@ public class ProductController {
                        @RequestParam("producerId") Long producerId,
                        @RequestParam("categoryId") Long categoryId,
                        Model model) {
-        Optional<Product> lastProduct = productService.findOne(product.getId());
-        Product pr = lastProduct.get();
         if (file.isEmpty()) {
+            Optional<Product> lastProduct = productService.findOne(product.getId());
+            Product pr = lastProduct.get();
             String currentImage = pr.getImage();
             product.setImage(currentImage);
         } else {
@@ -98,7 +98,10 @@ public class ProductController {
 
     @GetMapping("/add")
     public String add(Model model) {
+        Pageable pageable = PageRequest.of(0, 10);
         model.addAttribute("product", new Product());
+        model.addAttribute("categories",categoryService.findAll(pageable));
+        model.addAttribute("producers",producerService.findAll(pageable));
         return "back/product_edit";
     }
 }

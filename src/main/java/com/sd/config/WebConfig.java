@@ -11,8 +11,7 @@
 //
 //    @Override
 //    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/Webcontent/**).addResourceLocations("/")
-//                .setCachePeriod(31556926)
+//        registry.addResourceHandler("/front/css/**","/front/js/**","/front/img/**").addResourceLocations("classpath:/static/front/css","classpath:/static/front/js","classpath:/static/front/img");
 //    }
 //
 //}
