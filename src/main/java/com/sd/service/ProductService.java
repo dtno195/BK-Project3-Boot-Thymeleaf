@@ -5,6 +5,7 @@ import com.sd.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -45,5 +46,7 @@ public interface ProductService {
     void delete(Long id);
 
 
-    Optional<Product> search(String term);
+    List<Product> search(String term);
+
+    public List<Product> findAllProduct();
 }

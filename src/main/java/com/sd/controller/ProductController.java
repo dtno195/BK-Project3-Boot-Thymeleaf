@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +26,8 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/product")
@@ -40,9 +43,21 @@ public class ProductController {
 
 
     @GetMapping("/get-all")
-    public String list(Model model) {
-        Pageable pageable = PageRequest.of(0, 10);
-        model.addAttribute("products", productService.findAll(pageable));
+    public String list(Model model,
+                       @RequestParam(name = "page",required = false,defaultValue = "1") Integer page,
+                       @RequestParam(name = "size",required = false,defaultValue = "5") Integer size
+                       ) {
+        Pageable pageable = PageRequest.of(page-1, size);
+        Page<Product> findAllProduct = productService.findAll(pageable);
+        List<Product> fullProduct = productService.findAllProduct();
+        double sizeProduct = Math.round(fullProduct.size()%size) +1 ;
+        int totalPages = findAllProduct.getTotalPages();
+        if(totalPages > 0) {
+            List<Integer> pageNumbers = IntStream.rangeClosed(1,totalPages).boxed().collect(Collectors.toList());
+            model.addAttribute("pageNumbers", pageNumbers);
+        }
+        model.addAttribute("pagesize" ,sizeProduct );
+        model.addAttribute("products", findAllProduct);
         return "back/product";
     }
 
@@ -103,5 +118,19 @@ public class ProductController {
         model.addAttribute("categories",categoryService.findAll(pageable));
         model.addAttribute("producers",producerService.findAll(pageable));
         return "back/product_edit";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("term") String term, Model model) {
+        if (StringUtils.isEmpty(term)) {
+            return "redirect:/product/get-all";
+        }
+        List<Product> opProduct = productService.search(term);
+        if (!opProduct.isEmpty()){
+            model.addAttribute("products", opProduct);
+            return "back/product";
+        }
+        return "redirect:/product/get-all";
+
     }
 }

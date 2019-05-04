@@ -16,7 +16,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin::Head -->
 <head th:replace="back/header :: head"></head>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <!-- end::Head -->
 
 <!-- begin::Body -->
@@ -43,6 +45,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                     Product Manager
                                 </h3>
                             </div>
+                        </div>
+                        <div class="m-demo__preview" style="margin-top: 13px;">
+                            <form class="form-inline" th:action="@{/product/search}" method="get">
+                                <input class="form-control mr-sm-2" type="search" name="term" placeholder="Search by name ..." />
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i> Search
+                                </button>
+                            </form>
                         </div>
                         <div class="m-demo__preview m-demo__preview--btn" style="margin-top: 13px;">
                             <a href="#" th:href="@{/product/add}" class="btn btn-success m-btn m-btn--custom m-btn--icon m-btn--pill m-btn--air">
@@ -94,6 +104,13 @@ License: You must have a valid license purchased only from themeforest(the above
                             </tr>
                             </tbody>
                         </table>
+                        <nav aria-label="Pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item" th:each="pageNumber : ${pageNumbers}" >
+                                    <a class="page-link" th:href="@{|/product/get-all?page=${pageNumber}|}" th:text=${pageNumber}>1</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
                 <!--end::Portlet-->
