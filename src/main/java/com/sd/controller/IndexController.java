@@ -39,17 +39,9 @@ public class IndexController {
     }
 
 
-    @GetMapping("/shop")
-    public String shop(Model model,@RequestParam(name = "page",required = false,defaultValue = "1") Integer page,
-                       @RequestParam(name = "size",required = false,defaultValue = "12") Integer size){
-        Pageable pageable = PageRequest.of(page-1, size);
-        Page<Product> findAllProduct = productService.findAll(pageable);
-        int totalPages = findAllProduct.getTotalPages();
-        if(totalPages > 0) {
-            List<Integer> pageNumbers = IntStream.rangeClosed(1,totalPages).boxed().collect(Collectors.toList());
-            model.addAttribute("pageNumbers", pageNumbers);
-        }
-        model.addAttribute("products", findAllProduct);
-        return "front/index";
+
+    @GetMapping("/test")
+    public String test(){
+        return "front/product_detail";
     }
 }

@@ -63,7 +63,7 @@ public class ProductController {
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") Long id, Model model) {
-        Pageable pageable = PageRequest.of(0, 10);
+        Pageable pageable = PageRequest.of(0, 100);
         Optional<Product> opProduct = productService.findOne(id);
         model.addAttribute("categories",categoryService.findAll(pageable));
         model.addAttribute("producers",producerService.findAll(pageable));

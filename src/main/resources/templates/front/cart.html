@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="front/layout::header"></head>
+<script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+<body>
+
+<!-- Start Header Area -->
+<header th:replace="front/layout::head"></header>
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Product Details</h1>
+                <nav class="d-flex align-items-center">
+                    <a th:href="@{/shop?page=1}">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#">Shop</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Cart Area =================-->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <th:block th:if="${not #lists.isEmpty(listProduct)}">
+                <table class="table" >
+                    <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="cart : ${listProduct}">
+                        <td>
+                            <div class="media">
+                                <div class="d-flex">
+                                    <img class="img-fluid" th:attr="src=${cart.product.image}" alt="" style="width: 70px;height: 70px;">
+                                </div>
+                                <div class="media-body">
+                                    <a th:href="@{/shop/{id}/show(id=${cart.product.id})}">
+                                        <p th:text="${cart.product.name}"></p>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <h5 th:text="${cart.product.prize} + ' $'" id="prize"></h5>
+                        </td>
+                        <td>
+                            <div class="product_count">
+                                <input type="text" name="qty" id="sst" maxlength="12" th:value="${cart.quantityBuy}" title="Quantity:"
+                                       class="input-text qty">
+                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) this.result.value++;return false;"
+                                        class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 1 ) this.result.value--;return false;"
+                                        class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                            </div>
+                        </td>
+                        <td>
+                          <h5 th:text="${cart.product.prize} *${cart.quantityBuy}+'$'"></h5>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <h5>Total</h5>
+                        </td>
+                        <td>
+                            <h5 th:text="${total}+'$'"></h5>
+                        </td>
+                    </tr>
+                    <tr class="out_button_area">
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <div class="checkout_btn_inner d-flex align-items-center">
+                                <a class="gray_btn" th:href="@{/shop?page=1}">Continue Shopping</a>
+                                <a class="primary-btn" href="#">Proceed to checkout</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </th:block>
+            </div>
+            <th:block th:if="${#lists.isEmpty(listProduct)}">
+                <div class="returning_customer">
+                    <div class="check_title">
+                        <h2>Cart has no product. Please do it again.</h2>
+                    </div>
+                    <img th:src="@{/front/img/cart1.png}"  alt="">
+                    <div class="button-group-area mt-40 col-lg-8 text-center">
+                        <a th:href="@{/shop?page=1}" class="genric-btn primary radius">Go To Shop </a>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</section>
+<!--================End Cart Area =================-->
+<!-- start footer Area -->
+<footer th:replace="front/layout::footer"></footer>
+
+</body>
+
+</html>
